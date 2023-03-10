@@ -24,3 +24,4 @@ print(f"Випадкова дата: {random_date.date()}")
 time_difference = today - random_date
 
 print(f"Різниця між сьогоднішнім днем і випадковою датою: {time_difference}")
+
