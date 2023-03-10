@@ -1,44 +1,33 @@
-GREETING_TEXT: str = """Привіт і вітаю в імпровізованому калькуляторі! 
-Введи calculate для того щоб зробити просту арифметичну операцію і end щоб завершити програму!"""
-
-CALCULATE_TEXT: str = """Обрано команду calculate!
-Ти можеш скористатися однією з чотирьох арифметичних операцій: +, -, /, *.
-Програма приймає на вхід виключно цілі числа."""
-
-print(GREETING_TEXT)
+NON_VALID_STRING: str = "Пароль не відповідає критеріям \
+(не менше ніж 8 символів, наявність великих, маленьких літер, спецсимволів і цифр).\n\
+Будь ласка, введіть пароль заново."
 
 while True:
-    command: str = input("Введи команду: ")
-    if command == "calculate":
-        print(CALCULATE_TEXT)
-        while True:
-            first_operand_str: str = input("Введи перший операнд: ")
-            if not first_operand_str.isnumeric():
-                print("Перший операнд не валідний! Введи валідне ціле число!")
-                continue
-            second_operand_str: str = input("Введи другий операнд: ")
-            if not second_operand_str.isnumeric():
-                print("Другий операнд не валідний! Введи валідне ціле число!")
-                continue
-            operator_str: str = input("Введи оператор: ")
-            if operator_str not in "+-/*" or len(operator_str) > 1:
-                print("Оператор не валідний! Введи один з дозволених операторів (+, -, /, *)")
-                continue
-            break
-        first_operand: int = int(first_operand_str)
-        second_operand: int = int(second_operand_str)
-        if operator_str == "+":
-            result = first_operand + second_operand
-        elif operator_str == "-":
-            result = first_operand - second_operand
-        elif operator_str == "*":
-            result = first_operand * second_operand
-        elif operator_str == "/":
-            result = first_operand / second_operand
-        print(f"Результат виконування операції: {result}")
-        print("Дякую за довіру! Переводжу в меню вибору команди.")
-    elif command == "end":
-        print("Отримано команду end, завершую роботу!")
+    password_1: str = input("Введіть пароль: ")
+    password_2: str = input("Введіть пароль ще раз: ")
+    if password_1 != password_2:
+        print("Паролі не співпадають! Повторіть введення!")
+        continue
+    capital_count: int = 0
+    small_count: int = 0
+    numeric_count: int = 0
+    special_symb_count: int = 0
+    for letter in password_1:
+        if letter.islower():
+            small_count += 1
+        elif letter.isupper():
+            capital_count += 1
+        elif letter.isnumeric():
+            numeric_count += 1
+        elif not (letter.isalpha() or letter.isnumeric()):
+            special_symb_count += 1
+    is_small_and_capital: bool = capital_count > 0 and small_count > 0
+    is_numeric: bool = numeric_count > 0
+    is_special_symbs: bool = special_symb_count > 0
+    is_long_enough: bool = len(password_1) > 8
+
+    if is_small_and_capital and is_numeric and is_special_symbs and is_long_enough:
+        print("Пароль валідний! Дякую!")
         break
     else:
-        print("Отримано помилкову команду! Введи валідну команду (calculate або end)!")
+        print(NON_VALID_STRING)

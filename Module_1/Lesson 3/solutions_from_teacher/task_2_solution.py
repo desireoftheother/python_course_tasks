@@ -1,33 +1,45 @@
-NON_VALID_STRING: str = "Пароль не відповідає критеріям \
-(не менше ніж 8 символів, наявність великих, маленьких літер, спецсимволів і цифр).\n\
-Будь ласка, введіть пароль заново."
+command = input("Привіт! Введи команду fac для підрахунку факторіалу і fib для підрахунку числа Фібоначчі! ")
 
-while True:
-    password_1: str = input("Введіть пароль: ")
-    password_2: str = input("Введіть пароль ще раз: ")
-    if password_1 != password_2:
-        print("Паролі не співпадають! Повторіть введення!")
-        continue
-    capital_count: int = 0
-    small_count: int = 0
-    numeric_count: int = 0
-    special_symb_count: int = 0
-    for letter in password_1:
-        if letter.islower():
-            small_count += 1
-        elif letter.isupper():
-            capital_count += 1
-        elif letter.isnumeric():
-            numeric_count += 1
-        elif not (letter.isalpha() or letter.isnumeric()):
-            special_symb_count += 1
-    is_small_and_capital: bool = capital_count > 0 and small_count > 0
-    is_numeric: bool = numeric_count > 0
-    is_special_symbs: bool = special_symb_count > 0
-    is_long_enough: bool = len(password_1) > 8
-
-    if is_small_and_capital and is_numeric and is_special_symbs and is_long_enough:
-        print("Пароль валідний! Дякую!")
-        break
+if command == "fac":
+    n = int(input("Вибрано підрахунок факторіалу! Введіть число, для котрого треба підрахувати факторіал: "))
+    if n == 1 or n == 0:
+        fac_while = 1
     else:
-        print(NON_VALID_STRING)
+        i = 1
+        fac_while = 1
+        while i < n:
+            i += 1
+            fac_while *= i
+    print(f"Факторіал числа {n} дорівнює {fac_while}, імплементація через while")
+    fac_for = 1
+    for j in range(0, n+1):
+        if j == 0:
+            fac_for = 1
+        else:
+            fac_for *= j
+    print(f"Факторіал числа {n} дорівнює {fac_for}, імплементація через for")
+if command == "fib":
+    n = int(input("Вибрано підрахунок числа Фібоначчі! Введіть порядок числа Фібоначчі: "))
+    f_1_while = 0
+    f_2_while = 1
+    if n == 0:
+        fib_while = f_1_while
+    if n == 1:
+        fib_while = f_2_while
+    else:
+        i = 1
+        fib_while = 0
+        while i < n:
+            fib_while = f_1_while + f_2_while
+            f_1_while = f_2_while
+            f_2_while = fib_while
+            i += 1
+    print(f"Число Фібоначчі порядку {n} дорівнює {fib_while}, імплементація через while")
+    f_1_for = 0
+    f_2_for = 1
+    fib_for = 0
+    for i in range(1, n+1):
+        fib_for = f_1_for + f_2_for
+        f_1_for = f_2_for
+        f_2_for = fib_for
+    print(f"Число Фібоначчі порядку {n} дорівнює {fib_while}, імплементація через for")
