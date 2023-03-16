@@ -4,6 +4,7 @@
 
 # Зробіть це за допомогою декількох методів (zip, dict comprehension, for loop)
 
+
 example_str = "Stepan Bandera"
 
 expected_dict = {0: 'S',
