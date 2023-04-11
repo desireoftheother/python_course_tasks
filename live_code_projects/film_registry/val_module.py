@@ -29,7 +29,7 @@ def validate_director(value):
 
 
 def validate_rank(value):
-    pattern_for_floats = "^[0-9]+\.[0-9]+|\d+$"
+    pattern_for_floats = "^[0-9]+\.[0-9]+$"
     try:
         is_rank_valid_re = re.match(pattern_for_floats, value).string == value
     except AttributeError:
