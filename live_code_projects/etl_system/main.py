@@ -4,11 +4,11 @@ from live_code_projects.etl_system.src.transform.filter.filter_by_column_val imp
 from live_code_projects.etl_system.src.transform.filter.filter_ds_by_another import FilterOneDatasetByAnother
 from live_code_projects.etl_system.src.transform.filter.get_one_column import GetOneColumn
 
-titanic_data = CSVExtractor("/home/illia-teacher/PycharmProjects/python_course_tasks/Module_2/"
-                            "Lesson 1/titanic_data/titanic_data_2.csv").extract()
+titanic_data = CSVExtractor("/module_2/"
+                            "13_functions_as_1st_class_obj/titanic_data/titanic_data_2.csv").extract()
 
-survival_data = JSONExtractor("/home/illia-teacher/PycharmProjects/python_course_tasks/Module_2/"
-                              "Lesson 1/titanic_data/survival_data.json").extract()
+survival_data = JSONExtractor("/module_2/"
+                              "13_functions_as_1st_class_obj/titanic_data/survival_data.json").extract()
 
 filtered_survivors = FilterByColumnValues(survival_data, {"Survived": "1"}).transform()
 
