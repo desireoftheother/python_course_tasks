@@ -1,27 +1,33 @@
-import random
-import datetime
-
-today = datetime.datetime.today()
-random_boundary_year = random.randint(0, 100)
+NON_VALID_STRING: str = "Пароль не відповідає критеріям \
+(не менше ніж 8 символів, наявність великих, маленьких літер, спецсимволів і цифр).\n\
+Будь ласка, введіть пароль заново."
 
 while True:
-    random_year = random.randint(today.year - random_boundary_year, today.year)
-    random_month = random.randint(1, 12)
-    random_day = random.randint(1, 31)
-    if random_month == 2 and random_day == 29 and random_year % 4 == 0:
+    password_1: str = input("Введіть пароль: ")
+    password_2: str = input("Введіть пароль ще раз: ")
+    if password_1 != password_2:
+        print("Паролі не співпадають! Повторіть введення!")
+        continue
+    capital_count: int = 0
+    small_count: int = 0
+    numeric_count: int = 0
+    special_symb_count: int = 0
+    for letter in password_1:
+        if letter.islower():
+            small_count += 1
+        elif letter.isupper():
+            capital_count += 1
+        elif letter.isnumeric():
+            numeric_count += 1
+        elif not (letter.isalpha() or letter.isnumeric()):
+            special_symb_count += 1
+    is_small_and_capital: bool = capital_count > 0 and small_count > 0
+    is_numeric: bool = numeric_count > 0
+    is_special_symbs: bool = special_symb_count > 0
+    is_long_enough: bool = len(password_1) > 8
+
+    if is_small_and_capital and is_numeric and is_special_symbs and is_long_enough:
+        print("Пароль валідний! Дякую!")
         break
-    elif random_month == 2 and random_day > 28 and random_year % 4 != 0:
-        continue
-    elif random_month in [4, 6, 7, 9, 11] and random_day == 31:
-        continue
     else:
-        break
-
-random_date = datetime.datetime(random_year, random_month, random_day)
-
-print(f"Випадкова дата: {random_date.date()}")
-
-time_difference = today - random_date
-
-print(f"Різниця між сьогоднішнім днем і випадковою датою: {time_difference}")
-
+        print(NON_VALID_STRING)
