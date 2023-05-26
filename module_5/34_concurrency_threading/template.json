@@ -1,0 +1,60 @@
+{
+    "name": "John",
+    "age": 30,
+    "city": "New York",
+    "contact": {
+        "email": "john@example.com",
+        "phone": {
+            "home": "555-1234",
+            "work": "555-5678"
+        }
+    },
+    "education": [
+        {
+            "degree": "Bachelor's",
+            "major": "Computer Science",
+            "university": "Harvard University",
+            "year": 2010
+        },
+        {
+            "degree": "Master's",
+            "major": "Data Science",
+            "university": "Stanford University",
+            "year": 2012
+        }
+    ],
+    "work_experience": [
+        {
+            "company": "Google",
+            "position": "Software Engineer",
+            "start_date": "2012-01-01",
+            "end_date": "2014-12-31",
+            "projects": [
+                {
+                    "name": "Search Engine",
+                    "description": "Developed algorithms for search engine ranking"
+                },
+                {
+                    "name": "AdWords",
+                    "description": "Optimized ad targeting algorithms"
+                }
+            ]
+        },
+        {
+            "company": "Facebook",
+            "position": "Data Scientist",
+            "start_date": "2015-01-01",
+            "end_date": "2017-12-31",
+            "projects": [
+                {
+                    "name": "News Feed",
+                    "description": "Developed algorithms for personalized news feed"
+                },
+                {
+                    "name": "Ads",
+                    "description": "Optimized ad targeting algorithms"
+                }
+            ]
+        }
+    ]
+}
