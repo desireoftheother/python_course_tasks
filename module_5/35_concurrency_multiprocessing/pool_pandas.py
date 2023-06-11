@@ -28,12 +28,15 @@ def read_and_parse(path):
 
 start = time.time()
 
-# with ThreadPoolExecutor(6) as pool:
-#     csv_df = pd.concat(list(pool.map(read_and_parse, [cwd/CSV_RELATIVE_PATH/f"output_{i}.csv" for i in range(1, MAX_ROW_COUNT, STEP)])))
+with ThreadPoolExecutor(6) as pool:
+     csv_df = pd.concat(list(pool.map(read_and_parse, [cwd/CSV_RELATIVE_PATH/f"output_{i}.csv" for i in range(1, MAX_ROW_COUNT, STEP)])))
     
 # with ProcessPoolExecutor(6) as pool:
 #     csv_df = pd.concat(list(pool.map(read_and_parse, [cwd/CSV_RELATIVE_PATH/f"output_{i}.csv" for i in range(1, MAX_ROW_COUNT, STEP)])))
-    
+
+# with Pool(6) as pool:
+#     csv_df = pd.concat(list(pool.map(read_and_parse, [cwd/CSV_RELATIVE_PATH/f"output_{i}.csv" for i in range(1, MAX_ROW_COUNT, STEP)])))
+
 # csv_df = pd.concat(
 #     [read_and_parse(cwd/CSV_RELATIVE_PATH/f"output_{i}.csv") for i in range(1, MAX_ROW_COUNT, STEP)]
 # )

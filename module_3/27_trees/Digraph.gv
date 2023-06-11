@@ -1,3 +1,15 @@
 digraph {
 	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract" [label=extract]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data" [label=test_data]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/__init__.py" [label="__init__.py"]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_csv.py" [label="test_csv.py"]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_json.py" [label="test_json.py"]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data/json_data.json" [label="json_data.json"]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data/csv_data.csv" [label="csv_data.csv"]
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data"
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/__init__.py"
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_csv.py"
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_json.py"
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data/json_data.json"
+	"/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data" -> "/home/illia/work/python_course_tasks/live_code_projects/etl_system/test/extract/test_data/csv_data.csv"
 }

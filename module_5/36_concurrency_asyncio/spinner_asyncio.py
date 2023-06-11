@@ -17,7 +17,7 @@ async def spin(msg: str) -> None:
     print(f'\r{blanks}\r', end='')
 
 async def slow() -> int:
-    await asyncio.sleep(3)
+    await asyncio.sleep(7)
     return 42
 
 def main() -> None:
