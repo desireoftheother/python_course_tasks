@@ -1,16 +1,8 @@
 import socket
+import json
 
 HOST = "127.0.0.1" #This should be the PRIVATE IP of the server
-PORT = 65436
-
-sock = socket.socket()
-sock.bind((HOST, PORT))
-
-sock.listen(1)
-
-# Uncomment to mack socket unblocking later
-sock.setblocking(False)
-
+PORT = 65438
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
@@ -19,8 +11,15 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     with conn:
         print('Connected by', addr)
         while True:
-            data = conn.recv(1024)
-            if not data:
-                break
-            conn.sendall(data.upper())
+            key = None
+            message = None
+            if not key:
+                key = conn.recv(1024)
+            if not message:
+                message = conn.recv(1024)
+            # cypher
+            conn.sendall(cypher_result)
+            if key and message:
+                key = None
+                message = None
 
