@@ -1,5 +1,4 @@
 import asyncio
-import sys
 
 
 class ChatServer:
@@ -52,10 +51,6 @@ class ChatServer:
 
 def main():
     loop = asyncio.get_event_loop()
-    server = ChatServer(
-        "Test Server",
-        4455,
-    )
     try:
         loop.run_forever()
     finally:

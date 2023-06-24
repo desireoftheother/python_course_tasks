@@ -13,7 +13,7 @@ logger = logging.getLogger("logger")
 
 async def get_data(client: httpx.AsyncClient, url: str, limiter: AsyncLimiter):
     async with limiter:
-        start: int = perf_counter()
+        start: float = perf_counter()
         logger.info(msg=f"Sent request for url {url}")
         resp: httpx.Response = await client.get(url)
         logger.info(
@@ -23,7 +23,7 @@ async def get_data(client: httpx.AsyncClient, url: str, limiter: AsyncLimiter):
 
 
 async def main():
-    begin: int = perf_counter()
+    begin: float = perf_counter()
     async with httpx.AsyncClient() as client:
         limiter: AsyncLimiter = AsyncLimiter(150, 1)
         tasks: List[Awaitable] = list()

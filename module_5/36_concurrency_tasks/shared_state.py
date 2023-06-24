@@ -30,7 +30,7 @@ class LinkedListWithIterator:
             raise StopIteration
 
     @classmethod
-    def create_from_iterable(cls, iterable) -> Self:
+    def create_from_iterable(cls, iterable: Iterable) -> Self:
         prev_node: Node = Node(value=iterable[0])
         root: Node = prev_node
         for index, item in enumerate(iterable, start=1):
@@ -42,7 +42,9 @@ class LinkedListWithIterator:
 
 
 def print_within_thread(iterable: Iterable, times: int):
-    for item in iterable:
+    for index, item in enumerate(iterable):
+        if index == times:
+            break
         sleep(1)
         print(f"Object {item} within thread {get_ident()}")
 

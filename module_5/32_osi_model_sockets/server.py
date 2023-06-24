@@ -2,7 +2,7 @@ import socket
 import json
 
 HOST = "127.0.0.1" #This should be the PRIVATE IP of the server
-PORT = 65438
+PORT = 4455
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
